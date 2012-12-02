@@ -1,0 +1,54 @@
+<html>
+  <head>
+   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>Things to Do in ABQ</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/localstyle.css" rel="stylesheet">
+     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+ <!--[if lte IE 8]>
+     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
+ <![endif]-->
+    <script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/parks.js"></script>
+  </head>
+
+  <body>
+
+    <div id="map"></div>
+		
+		<a href="#menuModal" role="button" class="btn btn-block btn-primary" data-toggle="modal">Pick Things to Do</a>
+ 
+		<!-- Modal -->
+		<div id="menuModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		    <h3 id="myModalLabel">Things to Do in ABQ</h3>
+		  </div>
+		  <div class="modal-body">
+				<form class="form-horizontal">
+				<label>
+				<div class="well">	
+	  			<input type="checkbox" id="picnic" name="picnic">&nbsp;Have a Picnic
+				</div>
+				</label>
+				<label>
+				<div class="well">
+	      	<input type="checkbox" id="tennis" name="tennis">&nbsp;Play Tennis
+				</div>
+				</label>
+				<div class="well">
+	      	<label class="checkbox"><input type="checkbox" id="playgrounds" name="playgrounds">Playgrounds</label>
+				</div>
+				</form>
+		  </div>
+		  <div class="modal-footer">
+		    <button class="btn btn-primary btn-block" data-dismiss="modal" aria-hidden="true">See Where to Go</button>
+		  </div>
+		</div>
+
+  </body>
+
+</html>

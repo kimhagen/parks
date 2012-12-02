@@ -1,7 +1,6 @@
 $(function () {
 	
 
-
   var map = L.map('map')
 	map.locate({setView: true, maxZoom: 14});
 	//var map = L.map('map').setView([35.0844, -106.6506], 13);
@@ -11,7 +10,7 @@ $(function () {
     maxZoom: 18
   }).addTo(map);
 
-  $.getJSON("scripts/CityParks.json", function(json) {
+  $.getJSON("data/CityParks.json", function(json) {
     console.log(json); // this will show the info it in firebug console
     var parks = json;
 

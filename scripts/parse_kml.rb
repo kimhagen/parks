@@ -1,6 +1,7 @@
 
 require 'nokogiri'
 require 'json'
+require 'titleize'
 
 
 # wget must be installed on host system
@@ -16,7 +17,6 @@ parks = Array.new
 placemarks = doc.xpath("//Placemark")
 
 placemarks.each do |placemark|
-  park_name = placemark.xpath("name").text()
   new_park = Hash.new
 
   # Simplify coordinates from polygon into an avg lat/long for use as a point marker - will be slightly off for odd shapes
@@ -51,6 +51,8 @@ placemarks.each do |placemark|
       key.gsub!(' ','_')
       if value.to_i.to_s == value
         value = value.to_i
+      else
+        value = value.titleize
       end
       new_park[key] = value
       

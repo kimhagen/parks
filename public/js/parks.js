@@ -107,6 +107,8 @@ $(function () {
 		var runLayer = createLayerGroup(parks, function(el) { return el['Jogging_Paths'] > 0; });
 		
 		var soccerLayer = createLayerGroup(parks, function(el) { return el['Soccer_Fields'] > 0; });
+
+		var softballLayer = createLayerGroup(parks, function(el) { return (el['Lit_Softball_Fields'] > 0 || el['Unlit_Softball_Fields'] > 0);});
 		
 		var allLayer = createLayerGroup(parks, function(el) { return el });
 		
@@ -123,6 +125,8 @@ $(function () {
 		setupLayerClick("run", runLayer, map);
 		
 		setupLayerClick("soccer", soccerLayer, map);
+		
+		setupLayerClick("softball", softballLayer, map);
 		
 		setupLayerClick("all", allLayer, map);
 	

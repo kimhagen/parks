@@ -9,9 +9,17 @@ function createPopupContent(item) {
 		}
 	});
 	var popupLink = "<a target='_blank' href='http://maps.google.com/maps?saddr=" 
-		+ "[35.0844, -106.6506]" + 
+		+ "35.0844, -106.6506" + 
 		"&daddr=" + item.lat + "," + item.long + "'>Get Directions</a>";
 	return popupHeader + popupBody + popupLink;
+}
+
+function clearAllLayers(layerCollection, map) {
+	$.each(layerCollection, function(index, layer) {
+		if (map.hasLayer(layer)) {
+			map.removeLayer(layer);
+		}
+	});
 }
 
 
@@ -28,14 +36,13 @@ function createLayerGroup(parks, condf) {
 	return L.layerGroup(itemArray);
 }
 
-function setupLayerClick(layerName, layer, map) {
+function setupLayerClick(layerCollection, layerName, layer, map) {
 	$('#' + layerName).click(function(){
+		clearAllLayers(layerCollection, map);
 		if (!map.hasLayer(layer)) {
 			layer.addTo(map);
 		}
-		else {
-			map.removeLayer(layer);
-		}
+		$('#menuModal').modal('hide');
 	});
 }
 
@@ -103,23 +110,25 @@ $(function () {
 		
 		var allLayer = createLayerGroup(parks, function(el) { return el });
 		
-		setupLayerClick("playgrounds", playgroundLayer, map);
+		var layerCollection = [picnicLayer, tennisLayer, playgroundLayer, swimLayer, runLayer, soccerLayer, softballLayer, allLayer];
 		
-		setupLayerClick("picnic", picnicLayer, map);
+		setupLayerClick(layerCollection, "playgrounds", playgroundLayer, map);
 		
-		setupLayerClick("tennis", tennisLayer, map);
+		setupLayerClick(layerCollection, "picnic", picnicLayer, map);
 		
-		setupLayerClick("basketball", basketballLayer, map);
+		setupLayerClick(layerCollection, "tennis", tennisLayer, map);
 		
-		setupLayerClick("swim", swimLayer, map);
+		setupLayerClick(layerCollection, "basketball", basketballLayer, map);
 		
-		setupLayerClick("run", runLayer, map);
+		setupLayerClick(layerCollection, "swim", swimLayer, map);
 		
-		setupLayerClick("soccer", soccerLayer, map);
+		setupLayerClick(layerCollection, "run", runLayer, map);
 		
-		setupLayerClick("softball", softballLayer, map);
+		setupLayerClick(layerCollection, "soccer", soccerLayer, map);
 		
-		setupLayerClick("all", allLayer, map);
+		setupLayerClick(layerCollection, "softball", softballLayer, map);
+		
+		setupLayerClick(layerCollection, "all", allLayer, map);
 	
   });
 	
@@ -127,7 +136,7 @@ $(function () {
 	
 	$.fn.modal.defaults.maxHeight = function(){
 	    // subtract the height of the modal header and footer
-	    return $(window).height() - 165; 
+	    return $(window).height() - 105; 
 	}
 	
   $('#menuModal').modal('show');

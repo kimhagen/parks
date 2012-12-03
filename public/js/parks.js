@@ -139,6 +139,7 @@ $(function () {
 	}
 	
   $('#menuModal').modal('show')
+	map.invalidateSize();
 
 });
 

@@ -1,8 +1,11 @@
-html, body { height: 100%; width: 100%; margin: 0; max-width: 2080px; min-width:380px; text-align:center;}
+html, body { height: 100%; }
+
+body {
+	padding: 0;
+	margin: 0;
+}
 #map { 
 	height: 90%;
-	margin-left: auto;
-	margin-right: auto;
  }
 
  .choices button {
@@ -13,14 +16,6 @@ html, body { height: 100%; width: 100%; margin: 0; max-width: 2080px; min-width:
 	padding: 2px;
 	margin-top: 3px;
 	margin-bottom: 3px;
-}
-
-.well {
-	margin-bottom: 5px;
-}
-
-.well.choice {
-	background-color: #EAF8F8;
 }
 
 .btn-info.active {

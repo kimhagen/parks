@@ -8,7 +8,7 @@ function createPopupContent(item) {
 	  	popupBody = popupBody + "<p>" + el.replace(/_/g," ") + ": " + val + "</p>";
 		}
 	});
-	var popupLink = "<a href='http://maps.google.com/maps?saddr=" 
+	var popupLink = "<a target='_blank' href='http://maps.google.com/maps?saddr=" 
 		+ "35.0844,-106.6506" + 
 		"&daddr=" + item.lat + "," + item.long + "'>Get Directions</a>";
 	return popupHeader + popupBody + popupLink;
@@ -117,6 +117,11 @@ $(function () {
   });
 	
 	// Site UI elements
+	
+	$.fn.modal.defaults.maxHeight = function(){
+	    // subtract the height of the modal header and footer
+	    return $(window).height() - 165; 
+	}
 	
   $('#menuModal').modal('show')
 

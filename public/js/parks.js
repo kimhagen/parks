@@ -73,7 +73,7 @@ $(function () {
 	
 
   var map = L.map('map')
-	map.locate({setView: true, maxZoom: 14});
+	map.locate({setView: true, maxZoom: 13});
 	//var map = L.map('map').setView(initialLocation, 13);
 
   L.tileLayer('http://{s}.tile.cloudmade.com/10109f44bde34f8e98850b7f42f183d9/997/256/{z}/{x}/{y}.png', {

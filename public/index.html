@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 	 <meta charset="utf-8" />
-   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	 <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Things to Do in ABQ</title>
     <!-- Bootstrap -->
@@ -26,18 +26,18 @@
   <body>
 
     <div id="map"></div>
-		
-		<a href="#menuModal" role="button" class="btn btn-block btn-primary btn-large" data-toggle="modal">Pick Things to Do</a>
- 
+		<div id="menu">
+			<a href="#menuModal" role="button" class="btn btn-block btn-primary btn-large" data-toggle="modal">Pick Things to Do</a>
+		</div>
 		<!-- Modal -->
 		<div id="menuModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-header">
 		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-		    <h4 id="myModalLabel">Things to Do in ABQ Parks  <button id="about" data-content="about the app">About</button></h4>
+		    <h4 id="myModalLabel">Things to Do in ABQ Parks  </h4>
 		  </div>
 		  <div class="modal-body">
-				<h5>What do you want to do?</h5>
-				
+				<h5>What do you want to do?&nbsp;&nbsp;<a href="#" id="about" class="pull-right" data-content="This app uses data provided by the City of Albuquerque." data-placement:"bottom">About</a></h5>
+				<div class="choices">
 				<button id="playgrounds" class="btn btn-info btn-block" data-toggle="button">Play at a Playground</button>
 				<button id="picnic" class="btn btn-info btn-block" data-toggle="button">Have a Picnic</button>
 				<button id="swim" class="btn btn-info btn-block" data-toggle="button">Go for a Swim</button>
@@ -46,48 +46,7 @@
 				<button id="basketball" class="btn btn-info btn-block" data-toggle="button">Play Basketball</button>
 				<button id="soccer" class="btn btn-info btn-block" data-toggle="button">Play Soccer</button>
 				<button id="all" class="btn btn-info btn-block" data-toggle="button">All Parks</button>
-				<form class="form-horizontal">
-				<label>
-					<div class="well choice">
-		      	<input type="checkbox" id="playgrounds" name="playgrounds">&nbsp;Play at a Playground
-					</div>
-				</label>
-				<label>
-				<div class="well choice">	
-	  			<input type="checkbox" id="picnic" name="picnic">&nbsp;Have a Picnic
 				</div>
-				</label>
-				<label>
-				<div class="well choice">
-	      	<input type="checkbox" id="swim" name="swim">&nbsp;Go for a Swim
-				</div>
-				</label>
-				<label>
-				<div class="well choice">
-	      	<input type="checkbox" id="tennis" name="tennis">&nbsp;Play Tennis
-				</div>
-				</label>
-				<label>
-				<div class="well choice">
-	      	<input type="checkbox" id="run" name="run">&nbsp;Go for a Run
-				</div>
-				</label>
-				<label>
-				<div class="well choice">
-	      	<input type="checkbox" id="basketball" name="basketball">&nbsp;Play Basketball
-				</div>
-				</label>
-				<label>
-				<div class="well choice">
-	      	<input type="checkbox" id="soccer" name="soccer">&nbsp;Play Soccer
-				</div>
-				</label>
-				<label>
-				<div class="well choice">
-	      	<input type="checkbox" id="all" name="all">&nbsp;All Parks
-				</div>
-				</label>
-				</form>
 		  </div>
 		  <div class="modal-footer">
 		    <button class="btn btn-primary btn-block btn-large" data-dismiss="modal" aria-hidden="true">See Where to Go</button>

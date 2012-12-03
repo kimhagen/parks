@@ -1,16 +1,10 @@
 html, body { height: 100%; width: 100%; margin: 0; }
 #map { 
 	height: 90%;
-  left:0;
-  right:0;
-  margin: 0;
-  padding: 0;
-	top: 0px;
-	bottom: 0px;
  }
 
- .choice input {
-	 margin-top:0px;
+ .choices button {
+	 padding: 10px;
  }
 
 .popup {
@@ -25,4 +19,8 @@ html, body { height: 100%; width: 100%; margin: 0; }
 
 .well.choice {
 	background-color: #EAF8F8;
+}
+
+.btn-info.active {
+	background-color: #f89406;
 }

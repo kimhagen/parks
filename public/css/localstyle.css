@@ -1,6 +1,8 @@
-html, body { height: 100%; width: 100%; margin: 0; max-width: 2080px; min-width:380px;}
+html, body { height: 100%; width: 100%; margin: 0; max-width: 2080px; min-width:380px; text-align:center;}
 #map { 
 	height: 90%;
+	margin-left: auto;
+	margin-right: auto;
  }
 
  .choices button {

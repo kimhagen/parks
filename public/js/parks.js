@@ -1,9 +1,17 @@
 function createPopupContent(item) {
 	var popupHeader = "<h5>" + item.Park_Name + "</h5>";
+	var popupBody = ""
+	var boring = ["Park_Name","lat","long","Acres"]
+	$.each(item, function(el, val) {
+		var interestingItem = $.inArray(el, boring);
+		if (val > 0 && (interestingItem == -1)) {
+	  	popupBody = popupBody + "<p>" + el.replace("_"," ") + ": " + val + "</p>";
+		}
+	});
 	var popupLink = "<a href='http://maps.google.com/maps?saddr=" 
 		+ "35.0844,-106.6506" + 
 		"&daddr=" + item.lat + "," + item.long + "'>Get Directions</a>";
-	return popupHeader + popupLink;
+	return popupHeader + popupBody + popupLink;
 }
 
 
@@ -44,13 +52,31 @@ var greenIcon = L.icon({
 
 $(function () {
 	
+	var initialLocation;
+	var albuquerque = [35.0844, -106.6506];
+	var browserSupportFlag = undefined;
+	
+  // Try W3C Geolocation (Preferred)
+  if(navigator.geolocation) {
+    browserSupportFlag = true;
+    navigator.geolocation.getCurrentPosition(function(position) {
+			var lat = position.coords.latitude;
+			var lon = position.coords.longitude;
+			var initialLocation = [lat, lon];
+    });
+  }
+  // Browser doesn't support Geolocation
+  else {
+    browserSupportFlag = false;
+    initialLocation = albuquerque;
+  }
+	
 
   var map = L.map('map')
 	map.locate({setView: true, maxZoom: 14});
-	//var map = L.map('map').setView([35.0844, -106.6506], 13);
+	//var map = L.map('map').setView(initialLocation, 13);
 
   L.tileLayer('http://{s}.tile.cloudmade.com/10109f44bde34f8e98850b7f42f183d9/997/256/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
     maxZoom: 18
   }).addTo(map);
 	

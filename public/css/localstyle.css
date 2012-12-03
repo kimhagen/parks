@@ -9,12 +9,14 @@
   padding: 0;
  }
 
-
+ .choice input {
+	 margin-top:0px;
+ }
 
 .popup {
 	padding: 2px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+	margin-top: 3px;
+	margin-bottom: 3px;
 }
 
 .well {

@@ -84,8 +84,7 @@ $(function () {
 	//var map = L.map('map').setView(initialLocation, 13);
 
   L.tileLayer('http://{s}.tile.cloudmade.com/10109f44bde34f8e98850b7f42f183d9/997/256/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-		styleId: 1551
+    maxZoom: 18
   }).addTo(map);
 	
 

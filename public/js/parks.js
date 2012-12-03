@@ -5,7 +5,7 @@ function createPopupContent(item) {
 	$.each(item, function(el, val) {
 		var interestingItem = $.inArray(el, boring);
 		if (val > 0 && (interestingItem == -1)) {
-	  	popupBody = popupBody + "<p>" + el.replace("_"," ") + ": " + val + "</p>";
+	  	popupBody = popupBody + "<p>" + el.replace(/_/g," ") + ": " + val + "</p>";
 		}
 	});
 	var popupLink = "<a href='http://maps.google.com/maps?saddr=" 
@@ -98,6 +98,8 @@ $(function () {
 		
 		var runLayer = createLayerGroup(parks, function(el) { return el['Jogging_Paths'] > 0; });
 		
+		var soccerLayer = createLayerGroup(parks, function(el) { return el['Soccer_Fields'] > 0; });
+		
 		setupLayerClick("playgrounds", playgroundLayer, map);
 		
 		setupLayerClick("picnic", picnicLayer, map);
@@ -109,6 +111,8 @@ $(function () {
 		setupLayerClick("swim", swimLayer, map);
 		
 		setupLayerClick("run", runLayer, map);
+		
+		setupLayerClick("soccer", soccerLayer, map);
 	
   });
 	

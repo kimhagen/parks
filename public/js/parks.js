@@ -9,7 +9,7 @@ function createPopupContent(item) {
 		}
 	});
 	var popupLink = "<a target='_blank' href='http://maps.google.com/maps?saddr=" 
-		+ "35.0844,-106.6506" + 
+		+ "[35.0844, -106.6506]" + 
 		"&daddr=" + item.lat + "," + item.long + "'>Get Directions</a>";
 	return popupHeader + popupBody + popupLink;
 }
@@ -47,8 +47,7 @@ var greenIcon = L.icon({
 });
 
 
-
-
+var userLocation;
 
 
 $(function () {

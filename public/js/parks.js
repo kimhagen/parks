@@ -138,7 +138,7 @@ $(function () {
 	    return $(window).height() - 165; 
 	}
 	
-  $('#menuModal').modal('show')
+  $('#menuModal').modal('show');
 	map.invalidateSize();
 
 });

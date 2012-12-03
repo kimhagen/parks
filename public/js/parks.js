@@ -133,6 +133,7 @@ $(function () {
 	}
 	
   $('#menuModal').modal('show');
+	$('#about').popover();
 	
 	
 

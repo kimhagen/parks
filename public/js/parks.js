@@ -67,7 +67,6 @@ $(function () {
 			var lon = position.coords.longitude;
 			foundLocation = [lat, lon];
 			if (calcDistance(foundLocation, albuquerque) < 15) {
-				console.log('setting map view to geolocation');
 				map.setView(foundLocation, 13);
 			}
     });
@@ -84,7 +83,7 @@ $(function () {
 
 
   $.getJSON("data/CityParks.json", function(json) {
-    console.log(json); // this will show the info it in firebug console
+
     var parks = json;
 		
 		var picnicLayer = createLayerGroup(parks, function(el) { return el['Picnic_Tables'] > 0; });

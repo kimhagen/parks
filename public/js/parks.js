@@ -139,7 +139,12 @@ $(function () {
 	}
 	
   $('#menuModal').modal('show');
-	map.invalidateSize();
+	
+	$('#menuModal').bind('hidden', function () {
+	  	map.invalidateSize();
+	});
+	
+
 
 });
 

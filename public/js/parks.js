@@ -1,11 +1,11 @@
 function createPopupContent(item) {
-	var popupHeader = "<h5>" + item.Park_Name + "</h5>";
+	var popupHeader = "<h5>" + item.Park_Name + " Park</h5>";
 	var popupBody = ""
 	var boring = ["Park_Name","lat","long","Acres"]
 	$.each(item, function(el, val) {
 		var interestingItem = $.inArray(el, boring);
 		if (val > 0 && (interestingItem == -1)) {
-	  	popupBody = popupBody + "<p>" + el.replace(/_/g," ") + ": " + val + "</p>";
+	  	popupBody = popupBody + "<div class='popup'>" + el.replace(/_/g," ") + ": " + val + "</div>";
 		}
 	});
 	var popupLink = "<a target='_blank' href='http://maps.google.com/maps?saddr=" 
@@ -50,11 +50,13 @@ var greenIcon = L.icon({
 
 
 
+
 $(function () {
 	
-	var initialLocation;
+
 	var albuquerque = [35.0844, -106.6506];
 	var browserSupportFlag = undefined;
+	var map = L.map('map');
 	
   // Try W3C Geolocation (Preferred)
   if(navigator.geolocation) {
@@ -62,22 +64,28 @@ $(function () {
     navigator.geolocation.getCurrentPosition(function(position) {
 			var lat = position.coords.latitude;
 			var lon = position.coords.longitude;
-			var initialLocation = [lat, lon];
+			foundLocation = [lat, lon];
+			if (calcDistance(foundLocation, albuquerque) > 15) {
+				map.setView(albuquerque, 13);
+			}
+			else {
+				map.setView(foundLocation, 13);
+			}
     });
   }
   // Browser doesn't support Geolocation
   else {
     browserSupportFlag = false;
-    initialLocation = albuquerque;
+    map.setView(albuquerque, 13);
   }
-	
 
-  var map = L.map('map')
-	map.locate({setView: true, maxZoom: 13});
+  //var map = L.map('map')
+	//map.locate({setView: true, maxZoom: 13});
 	//var map = L.map('map').setView(initialLocation, 13);
 
   L.tileLayer('http://{s}.tile.cloudmade.com/10109f44bde34f8e98850b7f42f183d9/997/256/{z}/{x}/{y}.png', {
-    maxZoom: 18
+    maxZoom: 18,
+		styleId: 1551
   }).addTo(map);
 	
 
@@ -100,6 +108,8 @@ $(function () {
 		
 		var soccerLayer = createLayerGroup(parks, function(el) { return el['Soccer_Fields'] > 0; });
 		
+		var allLayer = createLayerGroup(parks, function(el) { return el });
+		
 		setupLayerClick("playgrounds", playgroundLayer, map);
 		
 		setupLayerClick("picnic", picnicLayer, map);
@@ -113,6 +123,8 @@ $(function () {
 		setupLayerClick("run", runLayer, map);
 		
 		setupLayerClick("soccer", soccerLayer, map);
+		
+		setupLayerClick("all", allLayer, map);
 	
   });
 	

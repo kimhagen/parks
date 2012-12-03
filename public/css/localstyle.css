@@ -1,3 +1,12 @@
 
 #map { height: 90% }
-#menu-button {}
+
+.popup {
+	padding: 2px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.well {
+	margin-bottom: 5px;
+}

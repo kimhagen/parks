@@ -57,6 +57,7 @@ $(function () {
 	var albuquerque = [35.0844, -106.6506];
 	var browserSupportFlag = undefined;
 	var map = L.map('map');
+	map.setView(albuquerque, 13);
 	
   // Try W3C Geolocation (Preferred)
   if(navigator.geolocation) {
@@ -65,10 +66,8 @@ $(function () {
 			var lat = position.coords.latitude;
 			var lon = position.coords.longitude;
 			foundLocation = [lat, lon];
-			if (calcDistance(foundLocation, albuquerque) > 15) {
-				map.setView(albuquerque, 13);
-			}
-			else {
+			if (calcDistance(foundLocation, albuquerque) < 15) {
+				console.log('setting map view to geolocation');
 				map.setView(foundLocation, 13);
 			}
     });
@@ -76,14 +75,9 @@ $(function () {
   // Browser doesn't support Geolocation
   else {
     browserSupportFlag = false;
-    map.setView(albuquerque, 13);
   }
 
-  //var map = L.map('map')
-	//map.locate({setView: true, maxZoom: 13});
-	//var map = L.map('map').setView(initialLocation, 13);
-
-  L.tileLayer('http://{s}.tile.cloudmade.com/10109f44bde34f8e98850b7f42f183d9/997/256/{z}/{x}/{y}.png', {
+	L.tileLayer('http://{s}.tile.cloudmade.com/10109f44bde34f8e98850b7f42f183d9/997/256/{z}/{x}/{y}.png', {
     maxZoom: 18
   }).addTo(map);
 	
@@ -140,9 +134,6 @@ $(function () {
 	
   $('#menuModal').modal('show');
 	
-	$('#menuModal').bind('hidden', function () {
-	  	map.invalidateSize();
-	});
 	
 
 

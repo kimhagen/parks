@@ -57,7 +57,7 @@ var greenIcon = L.icon({
 var userLocation;
 
 
-$(function () {
+function onReady() {
 	
 
 	var albuquerque = [35.0844, -106.6506];
@@ -145,5 +145,7 @@ $(function () {
 	
 
 
-});
+}
+
+$(onReady); // @CORDOVA@
 

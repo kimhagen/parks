@@ -8,7 +8,7 @@ function createPopupContent(item) {
 	  	popupBody = popupBody + "<div class='popup'>" + el.replace(/_/g," ") + ": " + val + "</div>";
 		}
 	});
-	var popupLink = "<a target='_blank' href='http://maps.google.com/maps?addr=" + item.lat + "," + item.long + "'>Open in Google Maps</a>";
+	var popupLink = "<a target='_blank' href='http://maps.google.com/maps?ll=" + item.lat + "," + item.long + "'>Open in Google Maps</a>";
 	return popupHeader + popupBody + popupLink;
 }
 

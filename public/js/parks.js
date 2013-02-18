@@ -44,8 +44,6 @@ function setupLayerClick(layerCollection, layerName, layer, map) {
 	});
 }
 
-function createLayers
-
 var greenIcon = L.icon({
     iconUrl: 'images/urbanpark.png',
     iconSize:     [32, 37], // size of the icon

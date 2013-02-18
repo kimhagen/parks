@@ -8,9 +8,7 @@ function createPopupContent(item) {
 	  	popupBody = popupBody + "<div class='popup'>" + el.replace(/_/g," ") + ": " + val + "</div>";
 		}
 	});
-	var popupLink = "<a target='_blank' href='http://maps.google.com/maps?saddr=" 
-		+ "35.0844, -106.6506" + 
-		"&daddr=" + item.lat + "," + item.long + "'>Get Directions</a>";
+	var popupLink = "<a target='_blank' href='http://maps.google.com/maps?addr=" + item.lat + "," + item.long + "'>Open in Google Maps</a>";
 	return popupHeader + popupBody + popupLink;
 }
 
@@ -46,6 +44,8 @@ function setupLayerClick(layerCollection, layerName, layer, map) {
 	});
 }
 
+function createLayers
+
 var greenIcon = L.icon({
     iconUrl: 'images/urbanpark.png',
     iconSize:     [32, 37], // size of the icon
@@ -71,9 +71,9 @@ $(function () {
     navigator.geolocation.getCurrentPosition(function(position) {
 			var lat = position.coords.latitude;
 			var lon = position.coords.longitude;
-			foundLocation = [lat, lon];
-			if (calcDistance(foundLocation, albuquerque) < 15) {
-				map.setView(foundLocation, 13);
+			userLocation = [lat, lon];
+			if (calcDistance(userLocation, albuquerque) < 15) {
+				map.setView(userLocation, 13);
 			}
     });
   }

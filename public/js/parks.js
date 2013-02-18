@@ -57,12 +57,12 @@ var greenIcon = L.icon({
 var userLocation;
 
 
-$(function () {
+function onReady() {
 	
 
 	var albuquerque = [35.0844, -106.6506];
 	var browserSupportFlag = undefined;
-	var map = L.map('map');
+	var map = L.map('map', {closePopupOnClick: false});
 	map.setView(albuquerque, 13);
 	
   // Try W3C Geolocation (Preferred)
@@ -145,5 +145,7 @@ $(function () {
 	
 
 
-});
+}
+
+$(onReady); // @CORDOVA@
 

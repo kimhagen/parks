@@ -141,7 +141,7 @@ function onReady() {
 	}
 	
   $('#menuModal').modal('show');
-	$('#about').popover();
+	$('#about').popover({ html : true });
 	
 	
 

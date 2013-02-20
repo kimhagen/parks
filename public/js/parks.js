@@ -58,7 +58,7 @@ var userLocation;
 function onReady() {
 	
   if (navigator.online == false) {
-    window.location = "no_connection.html"
+    window.location = "no_connection.html";
   }
 
 	var albuquerque = [35.0844, -106.6506];

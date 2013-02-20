@@ -58,7 +58,7 @@ var userLocation;
 function onReady() {
 	
   if (navigator.online == false) {
-    alert("Sorry, a net connection is required to use this app");
+    window.location = "no_connection.html"
   }
 
 	var albuquerque = [35.0844, -106.6506];

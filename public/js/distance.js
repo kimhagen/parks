@@ -14,6 +14,5 @@ function calcDistance(location1, location2) {
 	                  Math.cos(lat1)*Math.cos(lat2) *
 	                  Math.cos(lon2-lon1)) * R;
 										
-	console.log(d);
 	return d;
 };

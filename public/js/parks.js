@@ -57,7 +57,7 @@ var userLocation;
 
 function onReady() {
 	
-  if (navigator.online == false) {
+  if (navigator.onLine == false) {
     window.location = "no_connection.html";
   }
 

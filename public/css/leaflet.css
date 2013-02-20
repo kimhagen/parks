@@ -142,11 +142,11 @@
 	height: 27px;
 	}
 .leaflet-control-zoom-in {
-	background-image: url(images/zoom-in.png);
+	background-image: url(/images/zoom-in.png);
 	margin-bottom: 5px;
 	}
 .leaflet-control-zoom-out {
-	background-image: url(images/zoom-out.png);
+	background-image: url(/images/zoom-out.png);
 	}
 
 .leaflet-control-layers {
